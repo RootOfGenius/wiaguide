@@ -1,6 +1,7 @@
 import nextra from 'nextra'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+const isGitHubPages = Boolean(basePath)
 
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
@@ -9,13 +10,16 @@ const withNextra = nextra({
 
 export default withNextra({
   reactStrictMode: true,
-  output: 'export',
   trailingSlash: true,
-  basePath,
-  assetPrefix: basePath ? `${basePath}/` : undefined,
-  images: {
-    unoptimized: true,
-  },
+  ...(isGitHubPages
+    ? {
+        output: 'export',
+        basePath,
+        assetPrefix: `${basePath}/`,
+        images: {
+          unoptimized: true,
+        },
+      }
+    : {}),
 })
-
 
