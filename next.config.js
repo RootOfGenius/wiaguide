@@ -1,7 +1,7 @@
 import nextra from 'nextra'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-const isGitHubPages = Boolean(basePath)
+const isGitHubPages = process.env.DEPLOY_TARGET === 'github-pages'
 
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
@@ -22,4 +22,3 @@ export default withNextra({
       }
     : {}),
 })
-
