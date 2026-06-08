@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /.next/
+Disallow: /404
+
+Sitemap: https://audition-guideline.vercel.app/sitemap.xml
