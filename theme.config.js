@@ -1,6 +1,8 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 export default {
   logo: (
-    <img src="/slogan.png" alt="World in Audition" style={{ height: '40px' }} />
+    <img src={`${basePath}/slogan.png`} alt="World in Audition" style={{ height: '40px' }} />
   ),
 
   head: (
@@ -13,7 +15,7 @@ export default {
       <meta name="og:title" content="World in Audition Guideline" />
       <meta name="apple-mobile-web-app-title" content="WiA Guideline" />
       <meta name="theme-color" content="#000000" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href={`${basePath}/favicon.ico`} />
     </>
   ),
   search: {
@@ -40,5 +42,4 @@ export default {
     backToTop: true,
   },
 }
-
 
